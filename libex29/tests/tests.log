@@ -1,0 +1,8 @@
+DEBUG tests/libex29_tests.c:63: 
+------ test_dlopen
+DEBUG tests/libex29_tests.c:64: 
+------ test_functions
+DEBUG tests/libex29_tests.c:65: 
+------ test_failures
+DEBUG tests/libex29_tests.c:66: 
+------ test_dlclose

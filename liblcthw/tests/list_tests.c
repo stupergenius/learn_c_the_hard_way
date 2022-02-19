@@ -119,7 +119,7 @@ char *test_shift() {
 }
 
 char *all_tests() {
-  mu_suit_start();
+  mu_suite_start();
 
   mu_run_test(test_create);
   mu_run_test(test_push);

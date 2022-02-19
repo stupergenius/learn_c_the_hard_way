@@ -2,6 +2,12 @@
   "files.associations": {
     "stdio.h": "c",
     "minunit.h": "c",
-    "list.h": "c"
+    "list.h": "c",
+    "string.h": "c",
+    "assert.h": "c",
+    "stdbool.h": "c",
+    "list_algos.h": "c",
+    "dbg.h": "c",
+    "type_traits": "c"
   }
 }

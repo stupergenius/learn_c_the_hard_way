@@ -45,7 +45,7 @@ void *List_remove(List *list, ListNode *node);
 /*
  * A FOREACH macro accepting, in order:
  * L: The list to iterate
- * S: Which node to start on: first or last
+ * S: Which node to start on: first, last, or an arbitrary traversal (first->next, etc.)
  * M: Which "direction" to iterate in: next or prev
  * V: A pointer to the current iteration value
  */

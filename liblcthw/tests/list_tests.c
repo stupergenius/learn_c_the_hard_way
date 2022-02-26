@@ -72,12 +72,16 @@ char *test_unshift() {
 char *test_remove() {
   void *removed = NULL;
 
+  // list state is (from test_unshift): test3, test2, test1
+
   // middle value first
   removed = List_remove(list, list->first->next);
   mu_assert(removed == test2, "wrong removed value");
   mu_assert(List_count(list) == 2, "wrong count value");
   mu_assert(List_last(list) == test1, "wrong last value");
-  mu_assert(list->first->next == list->last->prev, "list pointers wrong");
+  mu_assert(List_first(list) == test3, "wrong first value");
+  mu_assert(list->first->next == list->last, "list pointers wrong");
+  mu_assert(list->last->prev == list->first, "list pointers wrong");
 
   // then last
   removed = List_remove(list, list->last);
@@ -98,12 +102,14 @@ char *test_shift() {
   List_unshift(list, test2);
   List_unshift(list, test1);
 
-  void *shifted = NULL;
+  char *shifted = NULL;
+
+  // list state is : test1, test2, test3
 
   shifted = List_shift(list);
   mu_assert(shifted == test1, "wrong shifted value");
   mu_assert(List_count(list) == 2, "wrong count value");
-  mu_assert(List_last(list) == test2, "wrong last value");
+  mu_assert(List_last(list) == test3, "wrong last value");
 
   shifted = List_shift(list);
   mu_assert(shifted == test2, "wrong shifted value");

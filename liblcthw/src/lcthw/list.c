@@ -177,7 +177,9 @@ void *List_remove(List *list, ListNode *node) {
     check(list->last, "Invalid list - got a next that is null");
     list->last->next = NULL;
   } else {
-    // node is in the middle
+    // node is somewhere in the middle
+    // current state: ...<-[prev]<->[node]<->[next]->...
+    // should become: ...<-[prev]<->[next]->...
     ListNode *prev = node->prev;
     ListNode *next = node->next;
     // now join them, severing the given node

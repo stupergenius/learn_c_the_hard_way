@@ -18,7 +18,6 @@ static int traverse_good_cb(HashmapNode *node) {
 	return 0;
 }
 
-
 static int traverse_fail_cb(HashmapNode *node) {
 	debug("KEY: %s", bdata((bstring)node->key));
 	traverse_called++;
@@ -33,6 +32,17 @@ static int traverse_fail_cb(HashmapNode *node) {
 char *test_create(void) {
 	map = Hashmap_create(NULL, NULL);
 	mu_assert(map != NULL, "Failed to create map.");
+	return NULL;
+}
+
+char *test_create_buckets() {
+	Hashmap *m = Hashmap_create_buckets(NULL, NULL, 5);
+	mu_assert(m != NULL, "Failed to create map.");
+	mu_assert(m->num_buckets == 5, "number of buckets wrong");
+
+	m = Hashmap_create_buckets(NULL, NULL, -5);
+	mu_assert(m == NULL, "Failed to create map.");
+
 	return NULL;
 }
 
@@ -100,6 +110,7 @@ char *all_tests(void) {
 	mu_suite_start();
 
 	mu_run_test(test_create);
+	mu_run_test(test_create_buckets);
 	mu_run_test(test_get_set);
 	mu_run_test(test_traverse);
 	mu_run_test(test_delete);

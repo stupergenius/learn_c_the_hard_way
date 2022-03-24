@@ -31,14 +31,17 @@ static uint32_t default_hash(void *a) {
   return hash;
 }
 
-Hashmap *Hashmap_create(Hashmap_compare compare, Hashmap_hash hash) {
+Hashmap *Hashmap_create_buckets(Hashmap_compare compare, Hashmap_hash hash, size_t num_buckets) {
+  check(num_buckets > 0, "hash buckets must be > 0");
+
   Hashmap *map = calloc(1, sizeof(Hashmap));
   check_mem(map);
 
+  map->num_buckets = num_buckets;
   map->compare = compare == NULL ? default_compare : compare;
   map->hash = hash == NULL ? default_hash : hash;
 
-  map->buckets = DArray_create(sizeof(DArray *), DEFAULT_NUMBER_OF_BUCKETS);
+  map->buckets = DArray_create(sizeof(DArray *), num_buckets);
   check_mem(map->buckets);
 
   // fake it so that it thinks its "full"
@@ -47,6 +50,10 @@ Hashmap *Hashmap_create(Hashmap_compare compare, Hashmap_hash hash) {
   return map;
   error:
     return NULL;
+}
+
+Hashmap *Hashmap_create(Hashmap_compare compare, Hashmap_hash hash) {
+  return Hashmap_create_buckets(compare, hash, DEFAULT_NUMBER_OF_BUCKETS);
 }
 
 // Hashmap and HashmapNode lifecycle functions

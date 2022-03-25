@@ -1,4 +1,46 @@
 #include <lcthw/darray.h>
+#include <lcthw/dbg.h>
+
+void DArray_set(DArray *array, int i, void *el) {
+  check(i < array->max, "attempt to set past max");
+
+  if (i > array->end) {
+    array->end = i;
+  }
+  array->contents[i] = el;
+
+  error:
+    return;
+}
+
+void *DArray_get(DArray *array, int i) {
+  check(i < array->max, "attempt to get past max");
+
+  return array->contents[i];
+
+  error:
+    return NULL;
+}
+
+void *DArray_remove(DArray *array, int i) {
+  void *el = NULL;
+  check(i < array->max, "attempt to remove past max");
+
+  el = array->contents[i];
+  array->contents[i] = NULL;
+
+  error:
+    return el;
+}
+
+void *DArray_new(DArray *array) {
+  check(array->element_size > 0, "called on 0 sized array");
+
+  return calloc(1, array->element_size);
+
+  error:
+    return NULL;
+}
 
 DArray *DArray_create(size_t element_size, size_t initial_max) {
   check(element_size > 0, "must give a >0 value for element size");

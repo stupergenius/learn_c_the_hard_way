@@ -4,11 +4,13 @@ PREFIX?=/usr/local
 
 SOURCES=$(wildcard src/**/*.c src/*.c)
 OBJECTS=$(patsubst %.c,%.o,$(SOURCES))
+HEADERS=$(wildcard src/**/*.h src/*.h)
 
 TEST_SRC=$(wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
 TARGET=build/liblcthw.a
+HEADER_TARGET=build/lcthw.h
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 
 # The target build
@@ -28,6 +30,13 @@ build:
 	@mkdir -p build
 	@mkdir -p bin
 
+# Currently hand-crafted. At some point should consider autoconf/automake
+$(HEADER_TARGET): $(HEADERS)
+	@rm -f $(HEADER_TARGET)
+	for f in "bstrlib" "list" "list_algos" "darray" "hashmap"; do cat "src/lcthw/$${f}.h" >> build/tmp_header.h && echo >> build/tmp_header.h; done && \
+		grep -v "^#include <lcthw/" build/tmp_header.h > $(HEADER_TARGET) && \
+		rm -f build/tmp_header.h
+
 # The unit tests
 .PHONY: tests
 tests: LDLIBS += $(TARGET)
@@ -42,9 +51,11 @@ clean:
 	rm -rf `find . -name "*.dSYM" -print`
 
 # The installer
-install: all
+install: all $(HEADER_TARGET)
 	install -d $(DESTDIR)/$(PREFIX)/lib/
+	install -d $(DESTDIR)/$(PREFIX)/include/
 	install $(TARGET) $(DESTDIR)/$(PREFIX)/lib/
+	install $(HEADER_TARGET) $(DESTDIR)/$(PREFIX)/include/
 
 # The checker
 check:

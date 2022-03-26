@@ -9,6 +9,7 @@
     "list_algos.h": "c",
     "dbg.h": "c",
     "type_traits": "c",
-    "bstrlib.h": "c"
+    "bstrlib.h": "c",
+    "stdlib.h": "c"
   }
 }

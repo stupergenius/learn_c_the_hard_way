@@ -4,15 +4,20 @@ PREFIX?=/usr/local
 
 SOURCES=$(wildcard src/**/*.c src/*.c)
 OBJECTS=$(patsubst %.c,%.o,$(SOURCES))
+HEADERS=$(wildcard src/**/*.h src/*.h)
 
 TEST_SRC=$(wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
-TARGET=build/libYOUR_LIBRARY.a
+PROGRAMS_SRC=$(wildcard bin/*.c)
+PROGRAMS=$(patsubst %.c,%,$(PROGRAMS_SRC))
+
+TARGET=build/liblcthw.a
+HEADER_TARGET=build/lcthw.h
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 
 # The target build
-all: $(TARGET) $(SO_TARGET) tests
+all: $(TARGET) $(SO_TARGET) tests $(PROGRAMS)
 
 dev: CFLAGS=-g -Wall -Wextra $(OPTFLAGS)
 dev: all
@@ -28,24 +33,34 @@ build:
 	@mkdir -p build
 	@mkdir -p bin
 
+$(PROGRAMS): LDLIBS += $(TARGET)
+
+# Currently hand-crafted. At some point should consider autoconf/automake
+$(HEADER_TARGET): $(HEADERS)
+	@rm -f $(HEADER_TARGET)
+	@for f in "bstrlib" "list" "list_algos" "darray" "hashmap"; do cat "src/lcthw/$${f}.h" >> build/tmp_header.h && echo >> build/tmp_header.h; done && \
+		grep -v "^#include <lcthw/" build/tmp_header.h > $(HEADER_TARGET) && \
+		rm -f build/tmp_header.h
+
 # The unit tests
 .PHONY: tests
-# tests: CFLAGS += $(TARGET)
 tests: LDLIBS += $(TARGET)
 tests: $(TESTS)
 	sh ./tests/runtests.sh
 
 # The cleaner
 clean:
-	rm -rf build $(OBJECTS) $(TESTS)
+	rm -rf build $(OBJECTS) $(TESTS) $(PROGRAMS)
 	rm -f tests/tests.log
 	find . -name "*.gc*" -exec rm {} \;
 	rm -rf `find . -name "*.dSYM" -print`
 
 # The installer
-install: all
+install: all $(HEADER_TARGET)
 	install -d $(DESTDIR)/$(PREFIX)/lib/
+	install -d $(DESTDIR)/$(PREFIX)/include/
 	install $(TARGET) $(DESTDIR)/$(PREFIX)/lib/
+	install $(HEADER_TARGET) $(DESTDIR)/$(PREFIX)/include/
 
 # The checker
 check:

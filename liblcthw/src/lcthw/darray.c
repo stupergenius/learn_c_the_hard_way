@@ -71,7 +71,7 @@ void DArray_destroy(DArray *array) {
 void DArray_clear(DArray *array) {
   if (array->element_size <= 0 || array->end <= 0) return;
 
-  for(int i = 0; i < array->max; i++) {
+  for(int i = 0; i < array->end; i++) {
     if (array->contents[i] == NULL) continue;
 
     free(array->contents[i]);

@@ -49,7 +49,6 @@ void *List_remove(List *list, ListNode *node);
  * M: Which "direction" to iterate in: next or prev
  * V: A pointer to the current iteration value
  */
-#define LIST_FOREACH(L, S, M, V) ListNode *_node = NULL; ListNode *V = NULL; \
-  for(V = _node = L->S; _node != NULL; V = _node = _node->M)
+#define LIST_FOREACH(L, S, M, V) for(ListNode *V = L->S; V != NULL; V = V->M)
 
 #endif

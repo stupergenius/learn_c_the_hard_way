@@ -89,7 +89,7 @@ static inline HashmapNode *Hashmap_node_create(uint32_t hash, void *key, void *d
 
 static inline DArray *Hashmap_find_bucket(Hashmap *map, void *key, int create, uint32_t *hash_out) {
   uint32_t hash = map->hash(key);
-  int bucket_n = hash % DEFAULT_NUMBER_OF_BUCKETS;
+  int bucket_n = hash % (map->num_buckets);
   check(bucket_n >= 0, "invalid bucket found: %d", bucket_n);
 
   // store the hash into the _out_ parameter
@@ -97,7 +97,7 @@ static inline DArray *Hashmap_find_bucket(Hashmap *map, void *key, int create, u
 
   DArray *bucket = DArray_get(map->buckets, bucket_n);
   if (!bucket && create) {
-    bucket = DArray_create(sizeof(Hashmap *), DEFAULT_NUMBER_OF_BUCKETS);
+    bucket = DArray_create(sizeof(Hashmap *), map->num_buckets);
     check_mem(bucket);
     DArray_set(map->buckets, bucket_n, bucket);
   }
@@ -144,7 +144,7 @@ int Hashmap_set(Hashmap *map, void *key, void *data) {
 void *Hashmap_get(Hashmap *map, void *key) {
   uint32_t hash = 0;
   DArray *bucket = Hashmap_find_bucket(map, key, 0, &hash);
-  check(bucket != NULL, "Can't find bucket");
+  check_debug(bucket != NULL, "Can't find bucket for key=%p hash=%d", key, hash);
 
   HashmapNode *node = Hashmap_find_node(map, bucket, key, hash);
   if (node) return node->data;

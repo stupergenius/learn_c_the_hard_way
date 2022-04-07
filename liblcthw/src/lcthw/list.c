@@ -4,7 +4,16 @@
 // List memory management and lifecycle
 
 List *List_create() {
-  return calloc(1, sizeof(List));
+  List *list = calloc(1, sizeof(List));
+  check_mem(list);
+
+  list->count = 0;
+  list->first = NULL;
+  list->last = NULL;
+  return list;
+
+  error:
+    return NULL;
 }
 
 void List_destroy(List *list) {
@@ -15,13 +24,13 @@ void List_destroy(List *list) {
     if (cur->prev) {
       free(cur->prev);
     }
-
-    // free the last one (which the loop wont have free'd)
-    free(list->last);
-
-    // free the list itself
-    free(list);
   }
+
+  // free the last one (which the loop wont have free'd)
+  free(list->last);
+
+  // free the list itself
+  free(list);
 }
 
 void List_clear(List *list) {

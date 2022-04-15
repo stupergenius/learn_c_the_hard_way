@@ -36,12 +36,10 @@ char *test_create(void) {
 }
 
 char *test_create_buckets() {
-	Hashmap *m = Hashmap_create_buckets(NULL, NULL, 5);
+	size_t num_buckets = 5;
+	Hashmap *m = Hashmap_create_buckets(NULL, NULL, num_buckets);
 	mu_assert(m != NULL, "Failed to create map.");
-	mu_assert(m->num_buckets == 5, "number of buckets wrong");
-
-	m = Hashmap_create_buckets(NULL, NULL, -5);
-	mu_assert(m == NULL, "Failed to create map.");
+	mu_assert(m->num_buckets == num_buckets, "number of buckets wrong");
 
 	return NULL;
 }
@@ -66,6 +64,13 @@ char *test_get_set(void) {
 	mu_assert(rc == 0, "Failed to set &test3.");
 	result = Hashmap_get(map, &test3);
 	mu_assert(result == &expect3, "Wrong value for test3.");
+
+	return NULL;
+}
+
+char *test_count(void) {
+	int count = Hashmap_count(map);
+	mu_assert(count == 3, "expected count of 3");
 
 	return NULL;
 }
@@ -102,6 +107,9 @@ char *test_delete(void) {
 	result = Hashmap_get(map, &test3);
 	mu_assert(result == NULL, "Should deleted.");
 
+	int count = Hashmap_count(map);
+	mu_assert(count == 0, "expected count of 0");
+
 	return NULL;
 }
 
@@ -112,6 +120,7 @@ char *all_tests(void) {
 	mu_run_test(test_create);
 	mu_run_test(test_create_buckets);
 	mu_run_test(test_get_set);
+	mu_run_test(test_count);
 	mu_run_test(test_traverse);
 	mu_run_test(test_delete);
 	mu_run_test(test_destroy);

@@ -37,6 +37,7 @@ Hashmap *Hashmap_create_buckets(Hashmap_compare compare, Hashmap_hash hash, size
   Hashmap *map = calloc(1, sizeof(Hashmap));
   check_mem(map);
 
+  map->count = 0;
   map->num_buckets = num_buckets;
   map->compare = compare == NULL ? default_compare : compare;
   map->hash = hash == NULL ? default_hash : hash;
@@ -135,6 +136,7 @@ int Hashmap_set(Hashmap *map, void *key, void *data) {
   check(node != NULL, "Create node failed");
 
   DArray_push(bucket, node);
+  map->count++;
 
   return 0;
   error:
@@ -188,6 +190,7 @@ void *Hashmap_delete(Hashmap *map, void *key) {
     // effectively removing it from the bucket array
     DArray_set(bucket, index, ending);
   }
+  map->count--;
 
   void *val = node->data;
   free(node);

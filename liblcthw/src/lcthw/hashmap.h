@@ -10,6 +10,7 @@ typedef int (*Hashmap_compare)(void *a, void *b);
 typedef uint32_t(*Hashmap_hash)(void *key);
 
 typedef struct Hashmap {
+  size_t count;
   size_t num_buckets;
   DArray *buckets;
   Hashmap_compare compare;
@@ -30,6 +31,8 @@ void Hashmap_destroy(Hashmap *map);
 
 int Hashmap_set(Hashmap *map, void *key, void *data);
 void *Hashmap_get(Hashmap *map, void *key);
+
+#define Hashmap_count(h) (h)->count
 
 int Hashmap_traverse(Hashmap *map, Hashmap_traverse_cb traverse);
 

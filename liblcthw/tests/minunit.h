@@ -14,13 +14,15 @@
 #define mu_run_test(test) debug("\n------%s", " " #test); message = test(); tests_run++; if (message) return message;
 
 #define RUN_TESTS(name) int main(int argc __attribute__((unused)), char *argv[]) { \
-  printf("------\nRUNNING: %s\n", argv[0]); \
+  printf("------\nRUNNING SUITE: %s\n", argv[0]); \
   char *result = name(); \
   if (result != 0) { \
     printf("FAILED: %s\n", result); \
+  } else { \
+    printf("PASSED ALL SUITE TESTS\n"); \
   } \
   printf("Tests run: %d\n", tests_run); \
-  exit(result != 0); \
+  return result != 0; \
 }
 
 int tests_run = 0;

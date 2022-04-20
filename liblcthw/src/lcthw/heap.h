@@ -36,8 +36,11 @@ Heap *Heap_create(HeapType type, Heap_key_compare compare, size_t initial_capaci
 // An O(logn) insert operation
 void Heap_insert(Heap *heap, void *key, void *value);
 
-// An O(logn) operation to get the min/max element out of the heap (based on what "type" it is).
+// An O(logn) operation to retrieve and remove the min/max element out of the heap (based on what "type" it is).
 HeapNode *Heap_extract(Heap *heap);
+
+// An O(logn) operation to retrieve (but not remove) the min/max element out of the heap (based on what "type" it is).
+HeapNode *Heap_peak(Heap *heap);
 
 // Assumes the caller owns the HeapNode keys and values and won't free them.
 void Heap_destroy(Heap *heap);

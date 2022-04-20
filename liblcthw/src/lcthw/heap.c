@@ -30,7 +30,8 @@ static inline int default_min_heap_compare(void *a, void *b) {
 }
 
 static inline int default_max_heap_compare(void *a, void *b) {
-  return intcmp(*(int *)a, *(int *)b);
+  // just flipping the sign
+  return -intcmp(*(int *)a, *(int *)b);
 }
 
 static inline Heap_key_compare default_heap_compare(HeapType type) {
@@ -176,6 +177,23 @@ HeapNode *Heap_extract(Heap *heap) {
 
     // now bubble down
     Heap_bubble_root_down(heap);
+  }
+
+  return extracted;
+
+  error:
+    return NULL;
+}
+
+HeapNode *Heap_peak(Heap *heap) {
+  check(heap != NULL, "Heap parameter cannot be null");
+
+  HeapNode *extracted = NULL;
+
+  if (Heap_count(heap) > 0) {
+    // pull out the first node
+    extracted = Heap_node_at(heap, 1);
+    // but dont do anything else
   }
 
   return extracted;

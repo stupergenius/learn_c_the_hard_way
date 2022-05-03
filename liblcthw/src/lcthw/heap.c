@@ -79,8 +79,8 @@ static void Heap_bubble_last_up(Heap *heap) {
     Heap_set_at(heap, parent_index, bubbling_node);
 
     inserted_index = parent_index;
-    parent_index = parent_index / 2; // As above, will floor
-    parent_node = Heap_node_at(heap, parent_index);
+    parent_index = parent_index / 2; // As above, will floor (to 0, so need to check below first)
+    if (parent_index > 0) parent_node = Heap_node_at(heap, parent_index);
   }
 
   error:

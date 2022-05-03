@@ -123,9 +123,9 @@ static void Heap_bubble_root_down(Heap *heap) {
 
   // The heap count comparison allows the loop to terminate at the "bottom" of a sub-tree,
   // since if we've swapped to a node with no children... the heap property is preserved by definition.
-  while (left_child_index < heap_count) {
+  while (left_child_index <= heap_count) {
     left_node = Heap_node_at(heap, left_child_index);
-    right_node = right_child_index < heap_count ? Heap_node_at(heap, right_child_index) : NULL;
+    right_node = right_child_index <= heap_count ? Heap_node_at(heap, right_child_index) : NULL;
 
     // if the heap property is met for both left and right nodes (when present)
     left_property = heap->compare(left_node->key, bubbling_node->key) > 0;

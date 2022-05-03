@@ -99,6 +99,32 @@ char *test_extract_min(void) {
   return NULL;
 }
 
+char *test_extract_min_inserted_ascending(void) {
+  Heap *heap = Heap_create(minHeap, NULL, INITIAL_CAPACITY);
+  mu_assert(heap != NULL, "Heap create failed");
+
+  HeapNode *node = Heap_extract(heap);
+  mu_assert(node == NULL, "extracted node was not null");
+
+  Heap_insert(heap, &test1.value, &test1);
+  Heap_insert(heap, &test2.value, &test2);
+  Heap_insert(heap, &test3.value, &test3);
+  Heap_insert(heap, &test4.value, &test4);
+  Heap_insert(heap, &test5.value, &test5);
+
+  for(int i = 1; i <= 5; i++) {
+    node = Heap_extract(heap);
+    mu_assert(node != NULL, "extracted node was null");
+    mu_assert(*(int *)node->key == i, "got wrong value from extract min");
+  }
+
+  mu_assert(Heap_count(heap) == 0, "heap size wasnt zero");
+
+  Heap_destroy(heap);
+
+  return NULL;
+}
+
 char *test_extract_max(void) {
   Heap *heap = Heap_create(maxHeap, NULL, INITIAL_CAPACITY);
   mu_assert(heap != NULL, "Heap create failed");
@@ -111,6 +137,32 @@ char *test_extract_max(void) {
   Heap_insert(heap, &test2.value, &test2);
   Heap_insert(heap, &test5.value, &test5);
   Heap_insert(heap, &test4.value, &test4);
+
+  for(int i = 5; i >= 1; i--) {
+    node = Heap_extract(heap);
+    mu_assert(node != NULL, "extracted node was null");
+    mu_assert(*(int *)node->key == i, "got wrong value from extract max");
+  }
+
+  mu_assert(Heap_count(heap) == 0, "heap size wasnt zero");
+
+  Heap_destroy(heap);
+
+  return NULL;
+}
+
+char *test_extract_max_inserted_ascending(void) {
+  Heap *heap = Heap_create(maxHeap, NULL, INITIAL_CAPACITY);
+  mu_assert(heap != NULL, "Heap create failed");
+
+  HeapNode *node = Heap_extract(heap);
+  mu_assert(node == NULL, "extracted node was not null");
+
+  Heap_insert(heap, &test1.value, &test1);
+  Heap_insert(heap, &test2.value, &test2);
+  Heap_insert(heap, &test3.value, &test3);
+  Heap_insert(heap, &test4.value, &test4);
+  Heap_insert(heap, &test5.value, &test5);
 
   for(int i = 5; i >= 1; i--) {
     node = Heap_extract(heap);
@@ -160,7 +212,9 @@ char *all_tests(void) {
 	mu_run_test(test_heap_destroy);
   mu_run_test(test_heap_insert);
   mu_run_test(test_extract_min);
+  mu_run_test(test_extract_min_inserted_ascending);
   mu_run_test(test_extract_max);
+  mu_run_test(test_extract_max_inserted_ascending);
   mu_run_test(test_peak_max);
 
 	return NULL;

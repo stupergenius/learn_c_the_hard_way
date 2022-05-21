@@ -1,2 +1,5 @@
 build/
 tests/tests.log
+
+bin/*
+!bin/**/*.c

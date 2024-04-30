@@ -202,6 +202,29 @@ HeapNode *Heap_peak(Heap *heap) {
     return NULL;
 }
 
+size_t Heap_index_of(Heap *heap, void *key) {
+  long rank = 0;
+  check(heap != NULL, "heap parameter cannot be null");
+  size_t heap_count = Heap_count(heap);
+  int cmp_rc = -1;
+
+  // trickery, since we know this is an array implementation we can just iterate till we find the key
+  for(size_t i = 1; i <= heap_count; i++) {
+    HeapNode *n = Heap_node_at(heap, i);
+    cmp_rc = heap->compare(n->key, key);
+
+    if (cmp_rc == 0) {
+      rank = i;
+      break;
+    }
+  }
+
+  return rank;
+
+  error:
+    return 0;
+}
+
 void Heap_destroy(Heap *heap) {
   if (heap == NULL) return;
 

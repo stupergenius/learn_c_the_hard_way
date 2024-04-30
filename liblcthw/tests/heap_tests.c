@@ -205,6 +205,30 @@ char *test_peak_max(void) {
   return NULL;
 }
 
+char *test_heap_index_of(void) {
+  size_t index_of = 0;
+  Heap *heap = Heap_create(maxHeap, NULL, INITIAL_CAPACITY);
+  mu_assert(heap != NULL, "Heap create failed");
+
+  Heap_insert(heap, &test3.value, &test3);
+  Heap_insert(heap, &test1.value, &test1);
+  Heap_insert(heap, &test2.value, &test2);
+  Heap_insert(heap, &test5.value, &test5);
+  Heap_insert(heap, &test4.value, &test4);
+
+  index_of = Heap_index_of(heap, &test3.value);
+  printf("index_of 3 = %lu\n", index_of);
+  mu_assert(index_of == 5, "index_of of 3 should be 5");
+  index_of = Heap_index_of(heap, &test5.value);
+  printf("index_of 5 = %lu\n", index_of);
+  mu_assert(index_of == 1, "index_of of 5 should be 1");
+  index_of = Heap_index_of(heap, &test1.value);
+  printf("index_of 1 = %lu\n", index_of);
+  mu_assert(index_of == 4, "index_of of 1 should be 4");
+
+  return NULL;
+}
+
 char *all_tests(void) {
 	mu_suite_start();
 
@@ -216,6 +240,7 @@ char *all_tests(void) {
   mu_run_test(test_extract_max);
   mu_run_test(test_extract_max_inserted_ascending);
   mu_run_test(test_peak_max);
+  mu_run_test(test_heap_index_of);
 
 	return NULL;
 }

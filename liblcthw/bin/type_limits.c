@@ -24,5 +24,9 @@ int main() {
    printf("The maximum value of Unsigned LONG is = %lu\n",
                                                  ULONG_MAX);
 
+   printf("\nThe number of bits in an int = %ld\n", sizeof(int) * 8);
+   printf("The number of bits in a long = %ld\n", sizeof(long) * 8);
+   printf("The number of bits in a long long = %ld\n", sizeof(long long) * 8);
+
    return 0;
 }

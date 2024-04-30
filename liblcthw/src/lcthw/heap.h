@@ -42,6 +42,9 @@ HeapNode *Heap_extract(Heap *heap);
 // An O(logn) operation to retrieve (but not remove) the min/max element out of the heap (based on what "type" it is).
 HeapNode *Heap_peak(Heap *heap);
 
+// finds the rank (aka a 1-based index) of the given key in the heap, or 0 if not found
+size_t Heap_index_of(Heap *heap, void *key);
+
 // Assumes the caller owns the HeapNode keys and values and won't free them.
 void Heap_destroy(Heap *heap);
 

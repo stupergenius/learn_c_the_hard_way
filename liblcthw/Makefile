@@ -38,7 +38,7 @@ $(PROGRAMS): LDLIBS += $(TARGET)
 # Currently hand-crafted. At some point should consider autoconf/automake
 $(HEADER_TARGET): $(HEADERS)
 	@rm -f $(HEADER_TARGET)
-	@for f in "bstrlib" "list" "list_algos" "darray" "hashmap" "heap"; do cat "src/lcthw/$${f}.h" >> build/tmp_header.h && echo >> build/tmp_header.h; done && \
+	@for f in "bstrlib" "list" "list_algos" "darray" "hashmap" "heap" "union_find"; do cat "src/lcthw/$${f}.h" >> build/tmp_header.h && echo >> build/tmp_header.h; done && \
 		grep -v "^#include <lcthw/" build/tmp_header.h > $(HEADER_TARGET) && \
 		rm -f build/tmp_header.h
 

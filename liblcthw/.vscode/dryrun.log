@@ -1,0 +1,26 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/ben/workspace/c_the_hard_way/liblcthw'
+mkdir -p build
+mkdir -p bin
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG  -fPIC   -c -o src/lcthw/heap.o src/lcthw/heap.c
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG  -fPIC   -c -o src/lcthw/union_find.o src/lcthw/union_find.c
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG  -fPIC   -c -o src/lcthw/hashmap.o src/lcthw/hashmap.c
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG  -fPIC   -c -o src/lcthw/list.o src/lcthw/list.c
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG  -fPIC   -c -o src/lcthw/darray.o src/lcthw/darray.c
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG  -fPIC   -c -o src/lcthw/bstrlib.o src/lcthw/bstrlib.c
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG  -fPIC   -c -o src/lcthw/list_algos.o src/lcthw/list_algos.c
+ar rcs build/liblcthw.a src/lcthw/heap.o src/lcthw/union_find.o src/lcthw/hashmap.o src/lcthw/list.o src/lcthw/darray.o src/lcthw/bstrlib.o src/lcthw/list_algos.o
+ranlib build/liblcthw.a
+cc -shared -o build/liblcthw.so src/lcthw/heap.o src/lcthw/union_find.o src/lcthw/hashmap.o src/lcthw/list.o src/lcthw/darray.o src/lcthw/bstrlib.o src/lcthw/list_algos.o
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG     tests/list_tests.c  build/liblcthw.a -o tests/list_tests
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG     tests/list_algos_tests.c  build/liblcthw.a -o tests/list_algos_tests
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG     tests/heap_tests.c  build/liblcthw.a -o tests/heap_tests
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG     tests/hashmap_tests.c  build/liblcthw.a -o tests/hashmap_tests
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG     tests/bstr_tests.c  build/liblcthw.a -o tests/bstr_tests
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG     tests/darray_tests.c  build/liblcthw.a -o tests/darray_tests
+sh ./tests/runtests.sh
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG     bin/type_limits.c  build/liblcthw.a -o bin/type_limits
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG     bin/sorter.c  build/liblcthw.a -o bin/sorter
+cc -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG     bin/strtoller.c  build/liblcthw.a -o bin/strtoller
+make: Leaving directory '/home/ben/workspace/c_the_hard_way/liblcthw'
+ 

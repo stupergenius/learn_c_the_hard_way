@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/ben/workspace/c_the_hard_way'
+cc -Wall -g    ex20.c   -o ex20
+cc -Wall -g    ex24.c   -o ex24
+make: Leaving directory '/home/ben/workspace/c_the_hard_way'
+ 

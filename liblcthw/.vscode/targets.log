@@ -1,0 +1,507 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'src/lcthw/union_find.o', needed by 'build/liblcthw.a'.  Stop.
+
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sat Jun 11 20:47:50 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# makefile (from 'Makefile', line 3)
+PREFIX = /usr/local
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
+# default
+.SHELLFLAGS := -c
+# environment
+VSCODE_LOG_NATIVE = false
+# makefile (from 'Makefile', line 15)
+TARGET = build/liblcthw.a
+# environment
+NVM_INC = /home/ben/.nvm/versions/node/v14.15.5/include/node
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/ben/workspace/c_the_hard_way/liblcthw
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /mnt/c/Program Files/Microsoft VS Code/bin/code
+# makefile (from 'Makefile', line 1)
+CFLAGS = -g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG $(OPTFLAGS)
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# 'override' directive
+GNUMAKEFLAGS := 
+# makefile (from 'Makefile', line 5)
+SOURCES = $(wildcard src/**/*.c src/*.c)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from 'Makefile', line 10)
+TESTS = $(patsubst %.c,%,$(TEST_SRC))
+# environment
+VSCODE_CWD = /mnt/c/Program Files/Microsoft VS Code
+# makefile (from 'Makefile', line 9)
+TEST_SRC = $(wildcard tests/*_tests.c)
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/ben/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/home/ben/.nvm/versions/node/v14.15.5/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Microsoft VS Code/bin:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/Ben Snider/AppData/Local/Microsoft/WindowsApps:/mnt/f/workspace/libs/android-sdk/platform-tools:/mnt/c/Program Files/Java/jdk1.8.0_271/bin:/mnt/f/workspace/libs/android-sdk/tools/bin:/mnt/f/workspace/libs/android-sdk/tools
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# makefile (from 'Makefile', line 13)
+PROGRAMS = $(patsubst %.c,%,$(PROGRAMS_SRC))
+# environment
+NVM_BIN = /home/ben/.nvm/versions/node/v14.15.5/bin
+# makefile (from 'Makefile', line 16)
+HEADER_TARGET = build/lcthw.h
+# environment
+VSCODE_LOG_STACK = false
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-9c9974cd-ea57-4444-8ef9-81cbc520d40e.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /home/ben/workspace/c_the_hard_way/liblcthw
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/544_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# environment
+WT_SESSION = c440c992-d14a-45dd-86cf-e312e0c597bc
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/ben
+# environment
+LOGNAME = ben
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+NVM_CD_FLAGS = -q
+# makefile (from 'Makefile', line 7)
+HEADERS = $(wildcard src/**/*.h src/*.h)
+# environment
+ZSH = /home/ben/.oh-my-zsh
+# makefile (from 'Makefile', line 17)
+SO_TARGET = $(patsubst %.a,%.so,$(TARGET))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 1
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = ben
+# makefile
+.DEFAULT_GOAL := all
+# environment
+NAME = Code
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/Ben Snider/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
+# default
+MAKE_COMMAND := make
+# environment
+OLDPWD = /mnt/c/Program Files/Microsoft VS Code
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+NVM_DIR = /home/ben/.nvm
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# environment
+WT_PROFILE_ID = {07b52e3e-de2c-5db4-bd2d-ba144ed6c273}
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# makefile (from 'Makefile', line 2)
+LIBS = -ldl $(OPTLIBS)
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# makefile (from 'Makefile', line 6)
+OBJECTS = $(patsubst %.c,%.o,$(SOURCES))
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_EXTHOST_WILL_SEND_SOCKET = true
+# environment
+WSL_DISTRO_NAME = Ubuntu-20.04
+# makefile (from 'Makefile', line 12)
+PROGRAMS_SRC = $(wildcard bin/*.c)
+# variable set hash-table stats:
+# Load=92/1024=9%, Rehash=0, Collisions=7/145=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2096, inode 612093): 11 files, no impossibilities.
+# src/lcthw (device 2096, inode 614344): 23 files, no impossibilities.
+# bin (device 2096, inode 614338): 8 files, no impossibilities.
+# src (device 2096, inode 614339): 3 files, no impossibilities.
+# tests (device 2096, inode 614341): 17 files, no impossibilities.
+
+# 62 files, no impossibilities in 5 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+tests/list_algos_tests:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/list_algos.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+tests/bstr_tests:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/hashmap.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: build/liblcthw.a build/liblcthw.so tests bin/type_limits bin/sorter bin/strtoller
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+tests/heap_tests:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/heap.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-25 22:58:55.713175202
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: tests
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# makefile (from 'Makefile', line 47)
+tests: LDLIBS += $(TARGET)
+tests: tests/list_tests tests/list_algos_tests tests/heap_tests tests/hashmap_tests tests/bstr_tests tests/darray_tests
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from 'Makefile', line 49):
+	sh ./tests/runtests.sh
+
+# makefile (from 'Makefile', line 25)
+build/liblcthw.a: CFLAGS += -fPIC
+ 
+build/liblcthw.a: build src/lcthw/heap.o src/lcthw/union_find.o src/lcthw/hashmap.o src/lcthw/list.o src/lcthw/darray.o src/lcthw/bstrlib.o src/lcthw/list_algos.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-25 22:58:55.913175203
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from 'Makefile', line 27):
+	ar rcs $@ $(OBJECTS)
+	ranlib $@
+
+build/lcthw.h: src/lcthw/hashmap.h src/lcthw/dbg.h src/lcthw/darray.h src/lcthw/list.h src/lcthw/bstrlib.h src/lcthw/list_algos.h src/lcthw/heap.h src/lcthw/union_find.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 40):
+	@rm -f $(HEADER_TARGET)
+	@for f in "bstrlib" "list" "list_algos" "darray" "hashmap" "heap" "union_find"; do cat "src/lcthw/$${f}.h" >> build/tmp_header.h && echo >> build/tmp_header.h; done && \
+		grep -v "^#include <lcthw/" build/tmp_header.h > $(HEADER_TARGET) && \
+		rm -f build/tmp_header.h
+
+# makefile (from 'Makefile', line 36)
+bin/strtoller: LDLIBS += $(TARGET)
+# Not a target:
+bin/strtoller:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-29 18:17:38.043115653
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+tests/darray_tests:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/darray.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build:
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-25 22:58:55.963175204
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 33):
+	@mkdir -p build
+	@mkdir -p bin
+
+# Not a target:
+src/lcthw/bstrlib.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/list.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/union_find.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/list_algos.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# makefile (from 'Makefile', line 36)
+bin/type_limits: LDLIBS += $(TARGET)
+# Not a target:
+bin/type_limits:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+
+build/liblcthw.so: build/liblcthw.a src/lcthw/heap.o src/lcthw/union_find.o src/lcthw/hashmap.o src/lcthw/list.o src/lcthw/darray.o src/lcthw/bstrlib.o src/lcthw/list_algos.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 30):
+	$(CC) -shared -o $@ $(OBJECTS)
+
+# makefile (from 'Makefile', line 22)
+dev: CFLAGS = -g -Wall -Wextra $(OPTFLAGS)
+dev: all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/1=0%
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+tests/hashmap_tests:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/hashmap.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/heap.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 53):
+	rm -rf build $(OBJECTS) $(TESTS) $(PROGRAMS)
+	rm -f tests/tests.log
+	find . -name "*.gc*" -exec rm {} \;
+	rm -rf `find . -name "*.dSYM" -print`
+
+# Not a target:
+src/lcthw/dbg.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# makefile (from 'Makefile', line 36)
+bin/sorter: LDLIBS += $(TARGET)
+# Not a target:
+bin/sorter:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+
+# Not a target:
+tests/list_tests:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/darray.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+check:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 67):
+	@echo Files with potentially dangerous functions:
+	@egrep '[^_.>a-zA-Z0-9](str(n?cpy|n?cat|xfrm|n?dup|str|pbrk|tok|_)|stpn?cpy|a?sn?printf|byte_)' $(SOURCES) || true
+
+# Not a target:
+src/lcthw/bstrlib.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/list.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lcthw/union_find.o:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+install: all build/lcthw.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 60):
+	install -d $(DESTDIR)/$(PREFIX)/lib/
+	install -d $(DESTDIR)/$(PREFIX)/include/
+	install $(TARGET) $(DESTDIR)/$(PREFIX)/lib/
+	install $(HEADER_TARGET) $(DESTDIR)/$(PREFIX)/include/
+
+# files hash-table stats:
+# Load=38/1024=4%, Rehash=0, Collisions=4/100=4%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 92 / storage = 1132 B / avg = 12 B
+# current buf: size = 8162 B / used = 1132 B / count = 92 / avg = 12 B
+
+# strcache performance: lookups = 144 / hit rate = 36%
+# hash-table stats:
+# Load=92/8192=1%, Rehash=0, Collisions=5/144=3%
+# Finished Make data base on Sat Jun 11 20:47:50 2022
+
+ 
